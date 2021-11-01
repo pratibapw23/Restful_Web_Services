@@ -34,5 +34,17 @@ public class TopicController {
 		topicservices.addTopic(topic);
 	}
 	
+	@RequestMapping(method=RequestMethod.PUT, value="/topics/{userid}")//PUT Request
+	public void updateTopic(@RequestBody Topic topic, @PathVariable String userid)
+	{
+		topicservices.updateTopic(userid,topic);
+	}
+	@RequestMapping(method=RequestMethod.DELETE, value="/topics/{userid}")//DELETE
+	public void deleteTopic(@PathVariable String userid)//pass userid to id parameter or use same name
+	{
+		topicservices.deleteTopic(userid);
+	}
+	
+	
 
 }

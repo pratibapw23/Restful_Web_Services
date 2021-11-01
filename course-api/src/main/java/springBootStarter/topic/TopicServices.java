@@ -24,13 +24,24 @@ public class TopicServices {
 	{
 		return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
 	}
-	public Topic getTopicByName(String name)
-	{
-		return topics.stream().filter(t -> t.getName().equals(name)).findAny().get();
-	}
 	public void addTopic(Topic topic) {
 		
 		topics.add(topic);
+	}
+	public void updateTopic(String userid, Topic topic) {
+		for(int i=0;i<topics.size();i++)
+		{
+			Topic t=topics.get(i);
+			if(t.getId().equals(userid))
+			{
+				topics.set(i, topic);
+				return;
+			}
+		}
+		
+	}
+	public void deleteTopic(String userid) {
+		topics.removeIf(t -> t.getId().equals(userid));
 	}
 	
 	

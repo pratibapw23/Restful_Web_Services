@@ -1,6 +1,7 @@
 package springBootStarter.topic;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class TopicController {
 	}
 	
 	@RequestMapping("/topics/{userid}") //get topic of specific id
-	public Topic getTopic(@PathVariable String userid)//pass userid to id parameter or use same name
+	public Optional<Topic> getTopic(@PathVariable String userid)//pass userid to id parameter or use same name
 	{
 		return topicservices.getTopic(userid);
 	}

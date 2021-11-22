@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class UserDto {
 	
+	private int id;
 	private String name;
 	private String email;
 	private String contact;
@@ -21,7 +22,10 @@ public class UserDto {
 	}
 
 
-
+	public int getId()
+	{
+		return id;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}

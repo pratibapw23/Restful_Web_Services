@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -41,6 +42,10 @@ public class UserController {
 		public User updateUser(@RequestParam int id, @RequestBody UserDto userdto){
 			return userservice.updateRecord(id, userdto);
 		}
+	@DeleteMapping("/user/delete")
+	public void deleteUser(@RequestParam int id) {
+		userservice.deleteUser(id);
+	}
 	
 	
 

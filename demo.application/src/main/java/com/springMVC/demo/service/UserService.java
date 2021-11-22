@@ -36,6 +36,14 @@ public class UserService {
 		Optional<User> list=userRepository.findById(id);
 		return list;
 	}
+	public User updateRecord(int id, UserDto userdto) {
+		User user=new User();
+		user=userRepository.findById(id).orElseThrow();
+		user.setEmail(userdto.getEmail());
+		user.setContact(userdto.getContact());
+		userRepository.save(user);
+		return user;
+	}
 	
 
 }

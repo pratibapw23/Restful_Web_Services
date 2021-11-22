@@ -44,6 +44,11 @@ public class UserService {
 		userRepository.save(user);
 		return user;
 	}
+	public void deleteUser(int id) {
+		User user=new User();
+		user=userRepository.findById(id).orElseThrow();
+		userRepository.delete(user);
+	}
 	
 
 }
